@@ -4,7 +4,10 @@ import Toolbar from '../toolbar/index.js';
 
 function App() {
 
-  const [html, setHtml] = useState('');
+  const [html, setHtml] = useState(`<div className="flex flex-col p-16 m-16 shadow-md">
+    <p className="text-xl">This is a component</p>
+    <p className="text-blue-600">We support Tailwind CSS out of the box. Try it!</p>
+</div>`);
 
   function changeHtml(e) {
     setHtml(e.target.value);
@@ -18,7 +21,7 @@ function App() {
           <textarea className="resize-none h-full w-full bg-gray-400" value={html} onChange={changeHtml}></textarea>
         </div>
         <div>
-          <JsxParser jsx={html}></JsxParser>
+          <JsxParser blacklistedAttrs={[]} jsx={html}></JsxParser>
         </div>
       </main>
     </div>
